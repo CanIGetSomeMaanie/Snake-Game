@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Snake Arcade | Play the Classic Snake Game</title>
+    <meta name="description" content="Play Snake Arcade online. Eat food, grow your snake and compete for a place in the top five.">
+    <meta name="keywords" content="Snake game, arcade game, JavaScript game">
+    <meta name="author" content="WEDE5020 Group">
+    <meta name="theme-color" content="#101710">
+
+    <link rel="stylesheet" href="Style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="brand" href="#" aria-label="Snake Arcade home">
+            <span aria-hidden="true">🐍</span>
+            SNAKE<span class="green">ARCADE</span>
+        </a>
+        <span class="arcade-status">● ARCADE MODE</span>
+    </header>
+
+    <main class="container">
+        <section class="game-screen" aria-label="Snake game">
+            <div class="game-heading">
+                <div>
+                    <p class="eyebrow">THE CLASSIC ARCADE GAME</p>
+                    <h1>Snake <span class="green">Arcade</span></h1>
+                </div>
+                <p id="gameStatus" class="game-status" aria-live="polite">
+                    READY TO PLAY
+                </p>
+            </div>
+
+            <div class="score-bar">
+                <div class="score-item">
+                    <span>SCORE</span>
+                    <strong id="score">0</strong>
+                </div>
+                <div class="score-item">
+                    <span>BEST SCORE</span>
+                    <strong id="bestScore">0</strong>
+                </div>
+            </div>
+
+            <div class="board-wrapper">
+                <canvas id="gameCanvas"
+                    width="400"
+                    height="400"
+                    role="img"
+                    aria-label="Snake game board">
+                </canvas>
+
+                <div id="overlay" class="overlay">
+                    <div class="overlay-card">
+                        <span class="big-snake" aria-hidden="true">🐍</span>
+                        <h2 id="overlayTitle">Ready to play?</h2>
+                        <p id="overlayMessage">
+                            Eat the food and avoid the walls and yourself.
+                        </p>
+                        <button id="startButton" type="button">
+                            START GAME
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <p class="keyboard-help">
+                    <span class="key">↑ ↓ ← →</span> or
+                    <span class="key">W A S D</span> to move
+                    <span class="separator">·</span>
+                    <span class="key">SPACE</span> to pause
+                </p>
+
+                <div class="mobile-controls" aria-label="Touch controls">
+                    <button type="button" data-direction="up"
+                        aria-label="Move up">↑</button>
+                    <div class="control-row">
+                        <button type="button" data-direction="left"
+                            aria-label="Move left">←</button>
+                        <button type="button" data-direction="down"
+                            aria-label="Move down">↓</button>
+                        <button type="button" data-direction="right"
+                            aria-label="Move right">→</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="secondary-section" aria-labelledby="scoresTitle">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">THE LEADERBOARD</p>
+                    <h2 id="scoresTitle">🏆 Top 5 Players</h2>
+                </div>
+            </div>
+
+            <ol id="leaderboard" class="leaderboard">
+                <li class="empty-score">No scores yet. Be the first!</li>
+            </ol>
+        </section>
+
+        <section id="playerFormSection"
+            class="secondary-section player-form" hidden>
+            <p class="eyebrow">NEW HIGH SCORE</p>
+            <h2>Save your score!</h2>
+            <p>You qualified for the top five. Enter your details below.</p>
+
+            <form id="playerForm" novalidate>
+                <label for="playerName">Player name</label>
+                <input id="playerName" name="playerName"
+                    type="text" minlength="3" maxlength="20"
+                    autocomplete="nickname"
+                    placeholder="At least 3 characters" required>
+
+                <label for="playerEmail">Email address</label>
+                <input id="playerEmail" name="playerEmail"
+                    type="email" autocomplete="email"
+                    placeholder="you@example.com" required>
+
+                <p id="formError" class="form-error" aria-live="polite"></p>
+                <button type="submit">SAVE MY SCORE</button>
+            </form>
+        </section>
+
+
+        <footer>
+            <p>WEDE5020 | JavaScript Game Project</p>
+            <p>Designed and developed by our group.</p>
+        </footer>
+    </main>
+</body>
+</html>
